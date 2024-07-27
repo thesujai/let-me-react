@@ -1,0 +1,14 @@
+#root {
+  background-color: #f0f0f0;
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  top: 0;
+  margin: 0;
+}
+h1 {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color:cadetblue
+  
+}

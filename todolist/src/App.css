@@ -1,0 +1,73 @@
+.add-button {
+  display: inline;
+  height: 30px;
+  width: 50px;
+  font-size: 20px;
+  margin-left: 10px;
+  background-color: green;
+  color: white;
+  border: none;
+  cursor: pointer;
+
+}
+.add-button:hover {
+  background-color: darkgreen;
+}
+
+.inputfield {
+  display: inline;
+  margin-left: 10px;
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+
+  margin-top: 10px;
+  
+}
+.todo-input {
+  display: inline;
+  width: 100%;
+  height: 30px;
+  font-size: 20px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 5px;
+
+}
+.todo-input:focus {
+  text-align: center;
+}
+.card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+  margin-left: 10px;
+  margin-right: 60px;
+  padding: 10px;
+  height: 50px;
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+.todo-content{
+  display: inline;
+  margin-left: 10px;
+  font-size: 20px;
+  
+
+
+}
+.delete {
+  display: inline;
+  top: 5px;
+  position: relative;
+}
+
+.input-with-add {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+  margin-top: 20px;
+}
