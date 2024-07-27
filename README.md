@@ -1,2 +1,2 @@
 # let-me-react
-Not anything useful, just some a timpass thing
+Not anything useful, just a timpass repository
