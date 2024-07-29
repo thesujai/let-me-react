@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useCallback } from 'react'
 import InputTodo from './components/InputTodo'
 import TodoCard from './components/TodoCard'
 import AddButton from './components/AddButton'
@@ -11,21 +11,26 @@ function App() {
     return savedTodos ? JSON.parse(savedTodos) : [];
   });
   const [input, setInput] = useState('');
-  
+
   const setInputVar = (value) => {
     setInput(value);
   }
-  const addTodo = () => {
-    setTodos([...todos, input]);
-    localStorage.setItem('todos', JSON.stringify([...todos]));
+  const addTodo = useCallback(() => {
+    setTodos((prevTodos) => {
+      const newTodos = [...prevTodos, input];
+      localStorage.setItem('todos', JSON.stringify(newTodos));
+      return newTodos;
+    });
     setInput('');
-  }
-  const deleteTodo = (index) => {
-    const newTodos = todos.filter((todo, i) => i !== index);
-    localStorage.setItem('todos', JSON.stringify(newTodos));
-    setTodos(newTodos);
+  }, [input]);
 
-    }
+  const deleteTodo = useCallback((index) => {
+    setTodos((prevTodos) => {
+      const newTodos = prevTodos.filter((_, i) => i !== index);
+      localStorage.setItem('todos', JSON.stringify(newTodos));
+      return newTodos;
+    });
+  }, []);
   return (
     <>
       <div>
