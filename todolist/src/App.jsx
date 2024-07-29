@@ -6,27 +6,26 @@ import './App.css'
 
 
 function App() {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(() => {
+    const savedTodos = localStorage.getItem('todos');
+    return savedTodos ? JSON.parse(savedTodos) : [];
+  });
   const [input, setInput] = useState('');
+  
   const setInputVar = (value) => {
     setInput(value);
   }
-   const addTodo = () => {
+  const addTodo = () => {
     setTodos([...todos, input]);
     localStorage.setItem('todos', JSON.stringify([...todos]));
     setInput('');
   }
-    const deleteTodo = (index) => {
+  const deleteTodo = (index) => {
     const newTodos = todos.filter((todo, i) => i !== index);
     localStorage.setItem('todos', JSON.stringify(newTodos));
     setTodos(newTodos);
 
     }
-    useEffect(() => {
-      if (localStorage.getItem('todos')) {
-        return setTodos(JSON.parse(localStorage.getItem('todos')))
-      }
-    }, []);
   return (
     <>
       <div>
